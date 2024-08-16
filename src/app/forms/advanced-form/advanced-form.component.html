@@ -1,0 +1,54 @@
+<div class="form-container">
+  <h1>Nested FormGroup</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div>
+      <label for="firstName">Nombre</label>
+      <input
+        type="text"
+        formControlName="firstName"
+        placeholder="First Name"
+        appLettersOnly
+        [appShowErrors]="{
+          required: 'First name is required',
+          minlength: 'First name must be at least 3 characters long'
+        }"
+      />
+    </div>
+
+    <div>
+      <label for="lastName">Apellido</label>
+      <input type="text" formControlName="lastName" placeholder="Last Name" />
+    </div>
+
+    <div>
+      <fieldset formGroupName="address">
+        <legend>Dirección</legend>
+
+        <div>
+          <label for="street">Calle</label>
+          <input
+            type="text"
+            formControlName="street"
+            placeholder="Calle"
+            appLettersOnly
+          />
+        </div>
+
+        <div>
+          <label for="street">Ciudad</label>
+          <input
+            type="text"
+            formControlName="city"
+            placeholder="Ciudad"
+            appLettersOnly
+          />
+        </div>
+      </fieldset>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div>
+    <pre>{{ form.value | json }}</pre>
+  </div>
+</div>

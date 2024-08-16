@@ -1,0 +1,4 @@
+<small>Activo:</small>
+<span [ngClass]="{ 'disabled-control': disabled }" (click)="setValue()">{{
+  value ? "SI" : "NO"
+}}</span>

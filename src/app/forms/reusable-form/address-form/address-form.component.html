@@ -1,0 +1,26 @@
+<fieldset [formGroupName]="controlKey">
+  <legend>Dirección</legend>
+
+  <div>
+    <label for="street">Calle</label>
+    <input
+      type="text"
+      formControlName="street"
+      placeholder="Calle"
+      [appShowErrors]="{
+        required: 'Calle is required',
+        minlength: 'Calle must be at least 3 characters long'
+      }"
+    />
+  </div>
+
+  <div>
+    <label for="street">Ciudad</label>
+    <input
+      type="text"
+      formControlName="city"
+      placeholder="Ciudad"
+      appLettersOnly
+    />
+  </div>
+</fieldset>

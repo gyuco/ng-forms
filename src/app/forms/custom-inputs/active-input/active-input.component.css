@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin-top: 1rem;
+}
+.disabled-control {
+  opacity: 0.5;
+  pointer-events: none;
+}
+span {
+  border: 1px solid black;
+  cursor: pointer;
+}

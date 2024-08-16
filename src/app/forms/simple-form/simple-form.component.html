@@ -1,0 +1,80 @@
+<div class="flex">
+  <div class="form-container">
+    <h1>FormGroup</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()" (reset)="reset()">
+      <div>
+        <label for="firstName">Nombre</label>
+        <input
+          type="text"
+          formControlName="firstName"
+          placeholder="First Name"
+          appLettersOnly
+          [appShowErrors]="{
+            required: 'First name is required',
+            minlength: 'First name must be at least 3 characters long'
+          }"
+        />
+
+        <div style="background-color: bisque; border: 1px dashed green">
+          <pre>Pristine: {{ firstName.pristine | json }}</pre>
+          <pre>Touched: {{ firstName.touched | json }}</pre>
+          <pre>Dirty: {{ firstName.dirty | json }}</pre>
+        </div>
+      </div>
+
+      <div>
+        <label for="lastName">Apellido</label>
+        <input
+          type="text"
+          formControlName="lastName"
+          placeholder="Last Name"
+          [appShowErrors]="{
+            required: 'Last name is required',
+            minlength: 'Last name must be at least 3 characters long'
+          }"
+        />
+
+        <div style="background-color: bisque; border: 1px dashed green">
+          <pre>Pristine: {{ lastName.pristine | json }}</pre>
+          <pre>Touched: {{ lastName.touched | json }}</pre>
+          <pre>Dirty: {{ lastName.dirty | json }}</pre>
+        </div>
+      </div>
+      <button type="submit">Submit</button>
+      <button type="button" (click)="reset()">Reset</button>
+    </form>
+
+    <div>
+      <pre>{{ form.value | json }}</pre>
+    </div>
+    <div style="background-color: bisque; border: 1px dashed brown">
+      FORM
+      <pre>Valid: {{ form.valid | json }}</pre>
+      <pre>Pristine: {{ form.pristine | json }}</pre>
+      <pre>Touched: {{ form.touched | json }}</pre>
+      <pre>Dirty: {{ form.dirty | json }}</pre>
+    </div>
+  </div>
+
+  <div class="info">
+    <p>
+      La propiedad <b>pristine</b> indica si el control está en su estado
+      inicial. Se convierte en true si el valor del control no ha sido cambiado.
+      Es útil para implementar un comportamiento condicional basado en si un
+      usuario ha interactuado con el control o no.
+    </p>
+    <p>
+      La propiedad <b>touched</b> indica si el control ha sido desenfocado o
+      enfocado. Se convierte en true cuando el usuario interactúa con el control
+      (por ejemplo, hace clic dentro de la entrada y luego hace clic fuera). El
+      estado tocado ayuda a validar la entrada del usuario y a proporcionar la
+      retroalimentación apropiada.
+    </p>
+    <p>
+      La propiedad <b>dirty</b> indica si el valor del control ha cambiado. Se
+      convierte en true cuando el usuario modifica el valor del control. El
+      estado dirty es esencial para rastrear las interacciones del usuario y
+      desencadenar acciones específicas basadas en los cambios.
+    </p>
+  </div>
+</div>

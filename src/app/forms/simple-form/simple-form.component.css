@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+
+.info {
+  padding: 10px;
+}

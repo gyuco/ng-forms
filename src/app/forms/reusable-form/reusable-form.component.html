@@ -1,0 +1,32 @@
+<div class="form-container">
+  <h1>Resuable Form</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div>
+      <label for="firstName">Nombre</label>
+      <input
+        type="text"
+        formControlName="firstName"
+        placeholder="First Name"
+        appLettersOnly
+        [appShowErrors]="{
+          required: 'First name is required',
+          minlength: 'First name must be at least 3 characters long'
+        }"
+      />
+    </div>
+
+    <div>
+      <label for="lastName">Apellido</label>
+      <input type="text" formControlName="lastName" placeholder="Last Name" />
+    </div>
+
+    <div>
+      <app-address-form controlKey="address"></app-address-form>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div>
+    <pre>{{ form.value | json }}</pre>
+  </div>
+</div>

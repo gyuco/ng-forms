@@ -1,0 +1,40 @@
+<div class="form-container">
+  <h1>FormGroup</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div>
+      <label for="firstName">Nombre</label>
+      <input
+        type="text"
+        formControlName="firstName"
+        placeholder="First Name"
+        appLettersOnly
+        [appShowErrors]="{
+          required: 'First name is required',
+          minlength: 'First name must be at least 3 characters long'
+        }"
+      />
+    </div>
+
+    <div>
+      <label for="lastName">Apellido</label>
+      <input
+        type="text"
+        formControlName="lastName"
+        placeholder="Last Name"
+        [appShowErrors]="{
+          required: 'Last name is required',
+          minlength: 'Last name must be at least 3 characters long'
+        }"
+      />
+    </div>
+
+    <div>
+      <app-active-input formControlName="active"></app-active-input>
+    </div>
+    <button type="submit">Submit</button>
+
+    <div>
+      <pre>{{ form.value | json }}</pre>
+    </div>
+  </form>
+</div>

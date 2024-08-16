@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+nav {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.horizontal-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.horizontal-menu li {
+  margin: 0 15px;
+}
+
+.horizontal-menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease;
+}
+
+.horizontal-menu a:hover {
+  background-color: #575757;
+  border-radius: 4px;
+}
+
+.horizontal-menu a:active {
+  background-color: #4caf50;
+}

@@ -1,0 +1,79 @@
+<div class="form-container">
+  <h1>FormGroup</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div>
+      <label for="firstName">Nombre</label>
+      <input
+        type="text"
+        formControlName="firstName"
+        placeholder="First Name"
+        appLettersOnly
+        [appShowErrors]="{
+          required: 'First name is required',
+          minlength: 'First name must be at least 3 characters long'
+        }"
+      />
+    </div>
+    <br />
+    <div>
+      <label for="lastName">Apellido</label>
+      <input type="text" formControlName="lastName" placeholder="Last Name" />
+    </div>
+
+    <div class="tags" formArrayName="tags">
+      <div *ngFor="let tag of tags.controls; index as i">
+        <input type="text" [formControlName]="i" placeholder="Tag" />
+        <a href="javascript:void(0)" (click)="removeTag(i)"> X </a>
+      </div>
+    </div>
+
+    <div>
+      <button style="width: 100px" class="btn" type="button" (click)="addTag()">
+        add tag
+      </button>
+    </div>
+    <br />
+    <hr />
+    <div>
+      <button
+        style="width: 160px"
+        class="btn"
+        type="button"
+        (click)="addAddress()"
+      >
+        add address
+      </button>
+    </div>
+    <div class="addresses" formArrayName="addresses">
+      <div *ngFor="let address of addresses.controls; index as i">
+        <fieldset [formGroupName]="i">
+          <legend>Dirección</legend>
+          <div>
+            <label for="street">Calle</label>
+            <input
+              type="text"
+              formControlName="street"
+              placeholder="Street"
+              [appShowErrors]="{
+                required: 'Street is required',
+                minlength: 'Street must be at least 3 characters long'
+              }"
+            />
+          </div>
+          <div>
+            <label for="city">Ciudad</label>
+            <input type="text" formControlName="city" placeholder="City" />
+          </div>
+          <a href="javascript:void(0)" (click)="removeAddress(i)"> X </a>
+        </fieldset>
+      </div>
+    </div>
+    <br />
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div>
+    <pre>{{ form.value | json }}</pre>
+  </div>
+</div>
