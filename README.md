@@ -1,3 +1,33 @@
+# NG Forms — Reusable Angular Forms
+
+![Angular](https://img.shields.io/badge/Angular-17-DD0031?logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+Reusable **Angular forms components, validators & patterns** — reduce boilerplate in enterprise Angular apps.
+
+## What's inside
+
+- Reusable form controls & wrappers
+- Custom validators
+- Example app (`ng serve`) showing usage patterns
+
+## Quickstart
+
+```bash
+npm install
+ng serve
+# open http://localhost:4200
+```
+
+---
+
+> Built by [Giuseppe Concas](https://github.com/gyuco) — Senior Frontend (Angular), Tech Leader background
+
+---
+
+## Angular CLI notes
+
 # NgForms
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
